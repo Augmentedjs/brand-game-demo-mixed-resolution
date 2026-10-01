@@ -1,0 +1,15 @@
+{
+  "$schema": "https://augmentedstudios.com/schemas/platform.schema.json",
+  "schema": 1,
+  "builds": {
+    "supported": [
+      "atari-ste"
+    ]
+  },
+  "targets": {
+    "supported": [
+      "atari-ste"
+    ]
+  }
+}
+

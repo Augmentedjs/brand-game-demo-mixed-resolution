@@ -1,0 +1,18 @@
+{
+  "$schema": "https://augmentedstudios.com/schemas/brand-game.schema.json",
+  "schema": 1,
+  "game": {
+    "id": "brand-game-demo-mixed-resolution",
+    "name": "Brand 2 Mixed Resolution Demo"
+  },
+  "engine": {
+    "id": "brand-2",
+    "version": "2.0.0"
+  },
+  "targets": {
+    "supported": [
+      "atari-ste"
+    ]
+  }
+}
+

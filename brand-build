@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -eu
+
+: "${BRAND_ENGINE_ROOT:?BRAND_ENGINE_ROOT is required}"
+: "${BRAND_BUILDER_ROOT:?BRAND_BUILDER_ROOT is required}"
+: "${BRAND_ARTIFACT_DIR:?BRAND_ARTIFACT_DIR is required}"
+: "${BRAND_LOGICAL_TARGET:?BRAND_LOGICAL_TARGET is required}"
+: "${BRAND_BACKEND:?BRAND_BACKEND is required}"
+
+build_root="$BRAND_ARTIFACT_DIR/build"
+output_root="$BRAND_ARTIFACT_DIR/payload"
+
+case "$BRAND_LOGICAL_TARGET:$BRAND_BACKEND" in
+  atari-ste:freemint-gcc-libcmini)
+    exec make -f build/brand.mk atari \
+      ENGINE_ROOT="$BRAND_ENGINE_ROOT" \
+      BUILDER_ROOT="$BRAND_BUILDER_ROOT" \
+      BUILD_ROOT="$build_root" \
+      OUTPUT_ROOT="$output_root"
+    ;;
+  *)
+    echo "Unsupported Brand build coordinate: $BRAND_LOGICAL_TARGET:$BRAND_BACKEND" >&2
+    exit 2
+    ;;
+esac
+
